@@ -3,7 +3,9 @@
 * This CTF was a look into threat hunting concepts using KQL (Kusto Query Language). In this CTF, I performed threat hunting activities in two scenarios for a fictional company.
 
 ## Goal of CTF:
-* Investigate a cyber attack on GalaxyNeura, a cutting-edge company developing Brain-Computer Interface (BCI) technology. Adversaries rarely force their way in. Instead, they recon, manipulate, and persist, carefully chaining together tactics to achieve their goal. Threat actors may have infiltrated their systems, and it’s up to you to track their movements, uncover their TTPs, and piece together the attack before it’s too late!
+* Investigate a cyber attack on GalaxyNeura, a cutting-edge company developing Brain-Computer Interface (BCI) technology.
+* Adversaries rarely force their way in. Instead, they recon, manipulate, and persist, carefully chaining together tactics to achieve their goal.
+* Threat actors may have infiltrated their systems, and it’s up to you to track their movements, uncover their TTPs, and piece together the attack before it’s too late!
 
 ## CTF Structure
 * This KC7 CTF is comprised of two scenarios, an easier one (Scenario 1) and a harder one (Scenario 2).
