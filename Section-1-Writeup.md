@@ -11,4 +11,4 @@ Here we're off to an easy start, I just type the statement in the input box and 
 * Question - How many emails did your colleagues receive?
 * Answer - 1
 
-For this question 
+For this question I'm given some context into threat hunting
