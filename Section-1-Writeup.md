@@ -194,4 +194,58 @@ ProcessEvents
 | where process_commandline has 'olivia_bci_research.zip'
 ```
 
-I run the query above. The process_commandline field for the 1 result has the value
+I run the query above. The value in the ```process_commandline``` column for the one result has the value for the answer. 
+
+![Question 12-1](https://github.com/user-attachments/assets/1d6a2dde-3099-484b-9848-37a7787024a9)
+
+
+# Question 13
+
+* Question - Going back to the files contained in the zip archive, what automation tool was used as a loader?
+* Answer - autoit;AutoIt
+
+I re-run the query provided in Question 11 above to see the different files again. 
+
+```kql
+FileCreationEvents
+| where hostname == 'GWCY-MACHINE'
+| where timestamp between (datetime(2025-03-08T07:26:00Z) .. datetime(2025-03-09T00:00:00Z))
+```
+
+Two of four files contain "auto" in the value for the ```filename``` field. 
+
+![Question 13-1](https://github.com/user-attachments/assets/dd9ba1f9-7daf-4010-b7a5-3ca33afc1551)
+
+
+# Question 14
+
+* Question - What is the name of the executable for that malware?
+* Answer - nymeria.exe;nymeria
+
+So the automation tool used as a load, AutoIt was used to download extra malware. I'm given the query below to find the answer to this question.
+
+```kql
+ProcessEvents
+| where hostname == 'GWCY-MACHINE'
+| where process_name contains 'autoit'
+```
+
+The ```process_commandline``` field has the .exe file name, the answer to this question. 
+
+![Question 14-1](https://github.com/user-attachments/assets/ba30fa5f-315c-4be5-a389-b7bbbfd6b66e)
+
+
+# Question 15
+
+* Question - Which domain was it downloaded from?
+* Answer - bigbrainssmallbrains.net
+
+Using the same query as question 14, I see the domain name in the ```process_commandline``` field.
+
+![Question 15-1](https://github.com/user-attachments/assets/a14bc8d2-701a-49cb-ae7e-172abbad9106)
+
+
+# Question 16
+
+* Question -
+* Answer - 
