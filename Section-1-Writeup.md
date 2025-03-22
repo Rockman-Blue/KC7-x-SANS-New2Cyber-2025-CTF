@@ -413,3 +413,5 @@ I'm provided with a summary of what happened in this threat hunting scenario for
 * They persisted Nymeria to maintain access via the Windows tool regedit and were able to exfiltrate data from Rick's machine over a period of days.
 
 After reading this summary, I type the type in the box to finish up this first of two scenarios in this CTF. 
+
+![Question 25](https://github.com/user-attachments/assets/ffde26fe-aa46-42d4-8f29-7c5d530756b6)
