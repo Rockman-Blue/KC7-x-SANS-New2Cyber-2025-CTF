@@ -9,7 +9,9 @@
 
 # CTF Structure
 * This KC7 CTF is comprised of two scenarios, an easier one (Section 1) and a harder one (Section 2).
-* My write-up will show the question, KQL queries used, and the answer.
+* Section 1 mostly provided me with the queries to use, sometimes I had to slightly modify them.
+* Section 2 is harder, where I had to write the KQL queries using the knowledge gained from the provided queries in Section 1. 
+* My write-up will show the question, answer, KQL queries used, and supporting screenshots.
 
 # KQL Quick Overview
 * KQL (Kusto Query Language) is a Microsoft developed query language and tool used for exploring data to discover patterns, identify anomalies in data, and much more.
