@@ -49,7 +49,7 @@ After running this query, I look at the results and find the value for the ```ro
 
 Our recipient of the Dropbox email is someone would receive research papers, considering he's a scientist. The next step is to see if Rick expected that email or if he knew the person sharing the paper. 
 
-I run the same query from Question 2 above, since it shows the email and various details of the email. In the ```subject``` field, I see the name of the person who shared the file.
+I run the same query from Question 2 above, since it shows the email and various details of the email. In the ```subject``` column, I see the name of the person who shared the file.
 
 ```kql
 Email
@@ -79,4 +79,29 @@ Email
 * Answer - 2025-03-05T14:37:02Z
 
 Rick and Olivia had an email conversation spanning multiple days, and he was expecting a file from Olivia. Do they really know each other? I'm told to take a look at the very first email Olivia sent, and to do that I use the provided query below. 
+
+```kql
+Email
+| where recipient == 'rick_kingsley@galaxyneura.tech'
+| where sender endswith "linkedin.com"
+```
+
+After running this query, the answer to this question is in the ```timestamp``` column.
+
+![Question 6-1](https://github.com/user-attachments/assets/82535b55-c305-4154-b216-01e50b63efbe)
+
+# Question 7
+
+* Question - What is the domain used by Olivia in her email address?
+* Answer - harvards.edu
+
+The communication is recent, they likely never met in real life. Let's go back to the emails they exchanged to gather other clues. There is a mention of a renowed university there. I run the Query from Question 5 below and find the domain used by Olivia in her email address is “harvards.edu” from the ```sender``` column.
+
+```kql
+Email
+| where sender == 'rick_kingsley@galaxyneura.tech' or sender contains 'octopus'
+| where recipient == 'rick_kingsley@galaxyneura.tech' or recipient contains 'octopus'
+```
+
+![Question 7-1](https://github.com/user-attachments/assets/1d07eb25-e362-47c5-96cd-bc435a08702c)
 
