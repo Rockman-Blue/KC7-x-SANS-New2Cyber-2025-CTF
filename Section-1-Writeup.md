@@ -62,3 +62,21 @@ Email
 
 * Question - How many emails did the two of them exchange?
 * Answer - 8
+
+Now it's time to see if Rick had any prior contact with Olivia. I'm given the query below.
+
+```kql
+Email
+| where sender == 'rick_kingsley@galaxyneura.tech' or sender contains 'octopus'
+| where recipient == 'rick_kingsley@galaxyneura.tech' or recipient contains 'octopus'
+```
+
+![Question 5-1](https://github.com/user-attachments/assets/d8cabc95-2b3e-4b0e-88c6-6669a85df51b)
+
+# Question 6
+
+* Question - When did Rick first connect with Olivia? (paste the full timestamp)
+* Answer - 2025-03-05T14:37:02Z
+
+Rick and Olivia had an email conversation spanning multiple days, and he was expecting a file from Olivia. Do they really know each other? I'm told to take a look at the very first email Olivia sent, and to do that I use the provided query below. 
+
