@@ -1,7 +1,6 @@
 # KC7-x-SANS-New2Cyber-2025-CTF
-Write-up for KC7’s “A Day in the Life of a Threat Hunter” CTF from the 2025 SANS New2Cyber Summit.
-
-This CTF was a look into threat hunting concepts using KQL (Kusto Query Language). In this CTF, I performed threat hunting activities in two scenarios for a fictional company.
+* Write-up for KC7’s “A Day in the Life of a Threat Hunter” CTF from the 2025 SANS New2Cyber Summit.
+* This CTF was a look into threat hunting concepts using KQL (Kusto Query Language). In this CTF, I performed threat hunting activities in two scenarios for a fictional company.
 
 ## Goal of CTF:
 * Investigate a cyber attack on GalaxyNeura, a cutting-edge company developing Brain-Computer Interface (BCI) technology. Adversaries rarely force their way in. Instead, they recon, manipulate, and persist, carefully chaining together tactics to achieve their goal. Threat actors may have infiltrated their systems, and it’s up to you to track their movements, uncover their TTPs, and piece together the attack before it’s too late!
