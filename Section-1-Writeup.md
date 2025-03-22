@@ -386,5 +386,13 @@ Using CyberChef again, I use the same "From Base64" recipe that I used in the pr
 
 # Question 24
 
-* Question -
-* Answer -
+* Question - What file did "Olivia" manage to steal from Rick before they were shut down?
+* Answer - latest_super_secret_research_final_FINAL.pdf
+
+In the previous three questions, I investigated the Base64 encoded PowerShell commands for the top three results. So I think to look at the fourth, since it hasn’t been investigated yet. I copy the encoded PowerShell command in the value of the ```process_commandline``` column for the fourth result, and paste it into CyberChef. 
+
+![Question 24-1](https://github.com/user-attachments/assets/7e4efae7-304c-49ca-9ee8-caf2cfcd1d10)
+
+The file name is shown in the second line “latest_super_secret_research_final_FINAL.pdf”, that’s the answer. 
+
+![Question 24-2](https://github.com/user-attachments/assets/45150304-d4b5-4a68-93aa-55367569ab36)
