@@ -14,8 +14,8 @@
 ## KQL Quick Overview
 * KQL (Kusto Query Language) is a Microsoft developed query language and tool used for exploring data to discover patterns, identify anomalies in data, and much more.
 * KQL queries start with a data source (usually a table) and cosnists of one or more operators connected by the pipe  ```|``` characters.
-* An example of the syntax is below. Please read more at the [KQL Documentation](https://learn.microsoft.com/en-us/kusto/query/?view=microsoft-fabric) on the Microsoft Learn site
-```
+* An example of the syntax is below. Please read more at the [KQL Documentation](https://learn.microsoft.com/en-us/kusto/query/?view=microsoft-fabric) on the Microsoft Learn site.
+```kql
 TableName
 | where ColumnName == "Value"
 ```
