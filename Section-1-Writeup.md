@@ -396,3 +396,20 @@ In the previous three questions, I investigated the Base64 encoded PowerShell co
 The file name is shown in the second line “latest_super_secret_research_final_FINAL.pdf”, that’s the answer. 
 
 ![Question 24-2](https://github.com/user-attachments/assets/45150304-d4b5-4a68-93aa-55367569ab36)
+
+# Question 25
+
+Question - Type "Suspicion is the beginning of wisdom, and of madness." to finish your day.
+
+I'm provided with a summary of what happened in this threat hunting scenario for the insider threat, Rick.
+
+* "Olivia", probably someone working for another company, wanted to steal proprietary information from Galaxy Neura.
+* They started by doing some reconnaissance to find the perfect victim as an entry point.
+* They established rapport with Rick and gained his trust quickly.
+* Rick became an insider threat, as he willingly shared research he wasn't supposed to.
+* "Olivia" escalated by compromising Rick's machine via a legitimate Dropbox email.
+* The .svg file downloaded a zip archive that contained a decoy file, the pdf, and a malicious AutoIt executable.
+* The legitimate AutoIt3 process ran the malicious script and downloaded Nymeria, a malware that act as a keylogger and a RAT.
+* They persisted Nymeria to maintain access via the Windows tool regedit and were able to exfiltrate data from Rick's machine over a period of days.
+
+After reading this summary, I type the type in the box to finish up this first of two scenarios in this CTF. 
