@@ -247,5 +247,144 @@ Using the same query as question 14, I see the domain name in the ```process_com
 
 # Question 16
 
+* Question - How many IP addresses did it resolve to?
+* Answer - 4
+
+Before looking at what happened once the malware was downloaded, I"m told to take a closer look at the domain. This will tell us more about the threat actor's infrastructure. 
+
+I run the query provided below.
+
+```kql
+PassiveDns
+| where domain == 'bigbrainssmallbrains.net'
+| distinct ip
+```
+
+After running the query, there are four distinct IP addresses. That's the answer. 
+
+![Question 16-1](https://github.com/user-attachments/assets/5158be16-28c8-4b5c-9ac4-504e1678935f)
+
+
+# Question 17
+
+* Question - How many times did the threat actor browse to Galaxy Neura's network?
+* Answer - 12
+
+We can use these IP addresses to see if the threat actor browsed to the company's network before the attack, and if they did, what they searched for. Leveraging publicly available information is typical during the reconnaissance phase in an attack. Looking into recon gave give insight into threat actor methods - like how they chose their victims or their end goal. 
+
+I run the query provided below.
+
+```kql
+let bad_ips=
+PassiveDns
+| where domain == 'bigbrainssmallbrains.net' or domain == 'harvards.edu'
+| distinct ip;
+InboundNetworkEvents
+| where src_ip in (bad_ips)
+```
+
+After viewing the query results, there are 12 results. 
+
+![Question 17-1](https://github.com/user-attachments/assets/085e36fc-bd19-4ff0-82e6-ef14cc6b9329)
+
+
+# Question 18
+
+* Question - What type of researcher were they looking for? (only enter the search terms, replace the + by spaces)
+* Answer - most gullible researcher at Galaxy Neura
+
+I use the same query provided to me for Question 17. I look at the different values for the ```url``` column. Many of the results have the term “researcher” in the value for the URL field. The briefing says they ran a search for a specific kind of researcher. 
+
+![Question 18-1](https://github.com/user-attachments/assets/91bb9d8c-3b1a-4c4e-a317-ee39fbe1e093)
+
+I see the URL of “https://galaxyneura.tech/search=most+gullible+researcher+at+Galaxy+Neura” so the answer is “most gullible researcher at Galaxy Neura”.
+
+
+# Question 19
+
+* Question - What legitimate Windows tool did they use to do this?
+* Answer - regedit;regedit.exe
+
+Now we know that the threat actor used OSINT to search for a gulliable employee, Rick. Now it's time to go back to the Nymeria malware. The threat actor made sure that they would not lose access to Rick's machine, this is persistence. I run the query provided below.
+
+```kql
+ProcessEvents
+| where process_commandline contains "nymeria"
+```
+
+This returns two results. I look at the values for the ```process_name``` column, and I see regedit.exe. This is the Registry Editor, it allows you to modify the registry settings via a GUI. Modifying the registry is a common persistence mechanism for Windows systems. 
+
+![Question 19](https://github.com/user-attachments/assets/748153d9-3be2-47ed-9dcf-e930f104c0fc)
+
+
+# Question 20 
+
+* Question - How many discovery commands did "Olivia" run?
+* Answer - 6
+
+I need to keep looking into what happened next on Rick's machine. Once a threat actor gains access, they usualyl do some discovery on the machine and/or network that they compromised. I run the provided query below. 
+
+```kql
+ProcessEvents
+| where hostname == 'GWCY-MACHINE'
+| where timestamp >= datetime(2025-03-08T15:48:01Z)
+| where process_name == "cmd.exe"
+```
+I see that there are six results for the query, so that's the answer.
+
+![Question 20](https://github.com/user-attachments/assets/bd3f344c-fec7-4b84-9b75-955e02c80c4e)
+
+
+# Question 21
+
+* Question - What is "Olivia" trying to steal in the first Powershell command?
+* Answer - creds;credentials
+
+Threat actors often encode malicious commands so that they will be harder to detect by automated tools. Using a tool like [CyberChef](https://cyberchef.org/), we can decode encoded commands to discover what the threat actor is doing. First, I run the provided query below.
+
+```kql
+ProcessEvents
+| where hostname == 'GWCY-MACHINE'
+| where timestamp >= datetime(2025-03-09T09:57:31Z)
+| where process_commandline has "-enc"
+```
+
+![Question 21-1](https://github.com/user-attachments/assets/52851da8-b6b1-4dea-9394-e05f65f33d79)
+
+I take a look at the values for the ```process_commandline``` column for all four results. All of the commands are encoded, I suspect it's Base64 since that is a common encoding mechanism. I go to CyberChef, and select the “From Base64” recipe and paste the encoded PowerShell command from the first result. From the output, "Olivia" is trying to steal credentials, or “creds”.
+
+![Question 21-2](https://github.com/user-attachments/assets/86903aed-24c4-4469-9b42-bcb1969acdbb)
+
+
+# Question 22 
+
+* Question - What type of malware usually behaves like that?
+* Answer - keylogger
+
+I look at the script contained in the second PowerShell command by looking at the value for the ```process_commandline``` field for the second result of the query used in Question 21. 
+
+![Question 22-1](https://github.com/user-attachments/assets/1d0d3e79-ff3d-4618-b018-bee794d0e608)
+
+It’s another Base64 encoded message, so I use CyberChef like how I did for Question 21 with the "From Base64" recipe. Considering the script captures keystokes, the answer is "keylogger”.
+
+![Question 22-2](https://github.com/user-attachments/assets/5497bcc6-f8eb-4c3a-bd8f-2a34b070b02b)
+
+
+# Question 23 
+
+* Question - In which folder of the threat actor server is the data dumped?
+* Answer - brain_dump
+
+The briefing tells me that the third command also steals the content of the clipboard. So I view the value of the third result in the ```process_commandline``` column using the same query used for the previous two questions. I copy the Base64 encoded command to my clipboard.
+
+![Question 23-1](https://github.com/user-attachments/assets/6f52cec5-b323-424b-adf7-8405dac49df1)
+
+Using CyberChef again, I use the same "From Base64" recipe that I used in the previous two questions. Looking at the end of the URL in the ```$url``` variable, the folder is "brain_dump".
+
+![Question 23-2](https://github.com/user-attachments/assets/7d5cd762-02f4-46cd-8f6b-6ce933b3ceb0)
+
+
+# Question 24
+
 * Question -
-* Answer - 
+* Answer -
