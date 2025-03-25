@@ -3,7 +3,7 @@
 * Question - What is the subject of the email all three of them received?
 * Answer - Woopsie, the code for your secret chip is gone. Pay up if you want it back 😘
 
-First, I get a link to check out KC7's [KQL 101 Module](https://kc7cyber.com/go/take10) to learn more about KQL basics. Compared to Scenario 1, this scenario is much more challenged - as I had to write the KQL queries on my own, without the help of provided example queries. 
+First, I get a link to check out KC7's [KQL 101 Module](https://kc7cyber.com/go/take10) to learn more about KQL basics. Compared to Section 1, this scenario is much more challenging - as I had to write the KQL queries on my own, without the help of the provided queries present in Section 1. 
 
 The context of this scenario is as follows. You go to a cybersecurity conference and attend a talk that warns about the rise of double-extortion. Cybercriminals compromise a network, steal the most sensitive data they can find, and threaten high level exectutives with the release of the stolen data unless the company paid them. Refusal to comply results in the deployment of ransomware on the network. The criminals would then demand at least double the money they asked for in the first place. 
 
