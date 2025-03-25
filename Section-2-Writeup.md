@@ -321,5 +321,29 @@ I look at the values for the ```url``` column in the two results of the query an
 
 # Question 18
 
-* Question - 
-* Answer - 
+* Question - Looking at the IP addresses linked to Jean, can you find which VPN they used?
+* Answer - AstrillVPN;astrill
+
+The briefing tells me that I'll have to do research outside the data. So far, I know the IPs linked to Jean are 10.10.19.1 and 204.188.232.195. After searching for both IPs, I see that 204.188.232.195 is mentioned in a [Google Cloud blog post](https://cloud.google.com/blog/topics/threat-intelligence/mitigating-dprk-it-worker-threat). Further down in the blog post, there's a table of Network IOCs with various entries. I find the 204.188.232.195 IP address mentioned in the table with CTRL + F.
+
+![Question 18-1](https://github.com/user-attachments/assets/ca0cad90-546f-40fd-bc41-1d367a9933a4)
+
+![Question 18-2](https://github.com/user-attachments/assets/4ce49715-28c9-46e4-9049-e506820810ac)
+
+
+# Question 19
+
+* Question - Type You never lose. You either win or you learn. to finish this investigation.
+
+I'm provided with a summary of what happened in this threat hunting scenario for the external threat "Jean Song".
+
+* Jean Song (or whatever they're really called) applied to the company, nailed the interviews, and got hired.
+* They got the company-issued laptop delivered to another location, most likely a laptop farm.
+* They connected to that laptop via a VPN to mask their real location.
+* They installed their own remote access tool and a KVM over IP on the laptop to be able to access it more easily.
+* Since they had access to the company's code repositories, they look for sensitive stuff and proceeded to copy it to their own account, then deleted the original.
+* Finally they asked for a ransom 
+
+After reading this summary, I type the phrase in the box to finish up this second section of this threat hunting CTF.
+
+![Question 19-1](https://github.com/user-attachments/assets/e63ef746-d98a-4b8e-bae7-75083ea9210e)
