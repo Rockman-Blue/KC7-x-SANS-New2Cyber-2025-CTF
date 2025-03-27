@@ -3,7 +3,7 @@
 * In this CTF, I performed threat hunting activities in two scenarios for a fictional company using KQL to gain experience and hands-on practice with threat hunting.
 
 # Goal of CTF
-* Investigate a cyber attack on GalaxyNeura, a cutting-edge company developing Brain-Computer Interface (BCI) technology.
+* Investigate two cyber attacks on GalaxyNeura, a cutting-edge company developing Brain-Computer Interface (BCI) technology.
 * Adversaries rarely force their way in. Instead, they recon, manipulate, and persist, carefully chaining together tactics to achieve their goal.
 * Threat actors may have infiltrated their systems, and it’s up to you to track their movements, uncover their TTPs, and piece together the attack before it’s too late!
 
