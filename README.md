@@ -24,7 +24,7 @@ TableName
 ```
 
 # Skills Gained and Lessons Learned
-* Investigated a cyber attack on the fictitious company GalaxyNeura in an effort to better understand threat actor movements, TTPs, and map intrusions.
+* Investigated two cyber attacks on the fictitious company GalaxyNeura in an effort to better understand threat actor movements, TTPs, and map intrusions.
 * Learned and engaged with threat hunting concepts to put them into practice to solve 44 challenges, mostly focused on using KQL (Kusto Query Language).
 * Used KQL along with analytical skills to solve multiple real-world cybersecurity challenges, uncovering information about insider and external threats in two full scope investigation scenarios.
 
